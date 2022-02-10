@@ -1,11 +1,11 @@
 import { ObjectId } from "mongodb";
-import clientPromisse from '../../../lib/mongodb'
+import clientPromise from '../../../lib/mongodb'
 
 export default async (req, res) => {
   const id = new ObjectId(req.query.id);
 
-  const client = await clientPromisse;
-  const db = client.db();
+  const client = await clientPromise;
+  const db = client.db('sample_mflix');
 
   const movie = await db
     .collection("movies")

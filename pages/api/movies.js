@@ -2,12 +2,12 @@ import clientPromisse from '../../lib/mongodb'
 
 export default async (req, res) => {
   const client = await clientPromisse;
-  const db = client.db();
+  const db = client.db('sample_mflix');
 
   const movies = await db
     .collection("movies")
-    .find({})
-    .sort({ metacritic: -1 })
+    .find({ "imdb.rating": { "$exists": true, "$ne": "" } })
+    .sort({ "imdb.rating": -1 })
     .limit(20)
     .toArray();
 
