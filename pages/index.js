@@ -19,6 +19,16 @@ export default function Home({ games }) {
               <th>Preço</th>
               <th>Preço promocional</th>
               <th>Desconto</th>
+              {/* 
+                TO-DO:
+                  <th>Players</th>
+                  Mostrar lista com quem tem
+                  Um embaixo do outro com checkbox:
+                    [x] Matt
+                    [ ] Melissa
+                    [x] Dino
+              */}
+              <th></th>
             </tr>
             <tr></tr>
           </thead>
@@ -39,8 +49,7 @@ export async function getStaticProps() {
   //updateGames();
 
   try {
-    var games = await fetch(process.env.URL + '/api/games/getAllGames')
-      .then(res => res.json());
+    var games = await fetch(process.env.URL + '/api/games/getAllGames').then(res => res.json());
   } catch (e) {
     console.error(e)
   }

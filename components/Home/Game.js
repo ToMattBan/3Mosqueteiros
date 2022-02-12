@@ -15,7 +15,13 @@ export default function Game(props) {
         discount={game.prices.discount}
       />
 
-      <MostDetails 
+      {/*
+        TO-DO:
+          Dropdown, ao clicar mostra short_description,
+          Button "See More", ao clicar abre modal,
+          Modal, trará o resto das infos
+      */}
+      {/* <MostDetails 
         steamID={game.steamID}
         completeDesc={game.complete_description}
         shortDesc={game.short_description}
@@ -23,7 +29,7 @@ export default function Game(props) {
         background={game.media.background}
         videos={game.media.videos}
         screenshot={game.media.screenshot}
-      />
+      /> */}
     </React.Fragment>
   )
 }
