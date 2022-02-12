@@ -1,6 +1,8 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import styles from '../styles/Home.module.scss'
+import Game from '../components/Home/Game';
 
-export default function Home({}) {
+export default function Home({ games }) {
   return (
     <div className="container">
       <Head>
@@ -9,8 +11,41 @@ export default function Home({}) {
       </Head>
 
       <main>
-        Aqui serão listados os joguinhos
+        <table className='_tal'>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nome</th>
+              <th>Preço</th>
+              <th>Preço promocional</th>
+              <th>Desconto</th>
+            </tr>
+            <tr></tr>
+          </thead>
+          <tbody>
+            {
+              games.map((game, index) => {
+                return (<Game game={game} />)
+              })
+            }
+          </tbody>
+        </table>
       </main>
     </div>
   )
+}
+
+export async function getStaticProps() {
+  //updateGames();
+
+  try {
+    var games = await fetch(process.env.URL + '/api/games/getAllGames')
+      .then(res => res.json());
+  } catch (e) {
+    console.error(e)
+  }
+  return {
+    props: { games: games },
+    revalidate: 60 * 60 * 12 // 12 horas
+  }
 }
