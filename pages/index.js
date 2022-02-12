@@ -35,7 +35,7 @@ export default function Home({ games }) {
           <tbody>
             {
               games.map((game, index) => {
-                return (<Game game={game} />)
+                return (<Game game={game} key={index}/>)
               })
             }
           </tbody>
