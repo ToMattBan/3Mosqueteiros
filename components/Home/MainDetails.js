@@ -32,7 +32,7 @@ export default function MainDetails(props) {
       {
         mosqueteiros.map(mosqueteiro => {
           return (
-            <td className="_tac">
+            <td className="_tac" key={mosqueteiro}>
               <input type="checkbox" readOnly checked={mosqueteiro.games.includes(steamID)} />
             </td>
           )
