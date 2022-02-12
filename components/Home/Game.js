@@ -1,18 +1,19 @@
 import React from "react"
 import MainDetails from "./MainDetails";
-import MostDetails from "./MostDetails";
 
 export default function Game(props) {
-  const { game } = props;
+  const { game, mosqueteiros } = props;
 
   return (
     <React.Fragment>
-      <MainDetails 
+      <MainDetails
         banner={game.media.banner}
         name={game.name}
         price={game.prices.original}
         discountPrice={game.prices.promo}
         discount={game.prices.discount}
+        steamID={game.steamID}
+        mosqueteiros={mosqueteiros}
       />
 
       {/*
