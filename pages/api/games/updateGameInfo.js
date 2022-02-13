@@ -1,7 +1,7 @@
 import clientPromise from '../../../lib/mongodb'
 
 export default async (req, res) => {
-  const games = await fetch(process.env.URL + '/api/games/getAllGames').then(res => res.json());
+  const games = await fetch(process.env.NEXT_PUBLIC_URL + '/api/games/getAllGames').then(res => res.json());
 
   const client = await clientPromise;
   const db = client.db('games');

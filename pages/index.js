@@ -42,11 +42,11 @@ export default function Home({ games, mosqueteiros }) {
 }
 
 export async function getStaticProps() {
-  await fetch (process.env.URL + 'api/games/updateGameInfo');
+  await fetch (process.env.NEXT_PUBLIC_URL + 'api/games/updateGameInfo');
 
   try {
-    var games = await fetch(process.env.URL + 'api/games/getAllGames').then(res => res.json());
-    var mosqueteiros = await fetch(process.env.URL + 'api/games/getGamesByMosqueteiro').then(res => res.json());
+    var games = await fetch(process.env.NEXT_PUBLIC_URL + 'api/games/getAllGames').then(res => res.json());
+    var mosqueteiros = await fetch(process.env.NEXT_PUBLIC_URL + 'api/games/getGamesByMosqueteiro').then(res => res.json());
   } catch (e) {
     console.error(e)
   }
