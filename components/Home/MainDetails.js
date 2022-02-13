@@ -9,7 +9,7 @@ export default function MainDetails(props) {
   return (
     <tr>
       <td className="_tac"><Image src={banner} width="100px" height='50px' alt={`banner from ${name}`} /></td>
-      <td>{name} {steamID}</td>
+      <td>{name}</td>
       {/* 
         TO-DO:
         Mostrar preço com desconto e o desconto
@@ -32,7 +32,7 @@ export default function MainDetails(props) {
       {
         mosqueteiros.map(mosqueteiro => {
           return (
-            <td className="_tac" key={mosqueteiro}>
+            <td className="_tac" key={Math.random().toString()}>
               <input type="checkbox" readOnly checked={mosqueteiro.games.includes(steamID)} />
             </td>
           )
