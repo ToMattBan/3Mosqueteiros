@@ -41,66 +41,11 @@ export default function Home({ games, mosqueteiros }) {
   )
 }
 
-import clientPromise from '../lib/mongodb';
-
 export async function getStaticProps() {
   try {
-    const client = await clientPromise;
-    const db = client.db('games');
-
-    var games = await db
-      .collection("games")
-      .find({})
-      .sort({})
-      .toArray();
-
-    games.forEach(async game => {
-      var gameDetails = await fetch(`https://store.steampowered.com/api/appdetails?cc=br&l=br&appids=${game.steamID}`).then(res => res.json());
-      gameDetails = gameDetails[game.steamID].data
-
-      if (gameDetails.movies)
-        var videos = gameDetails.movies.map(video => { return video.webm["480"] })
-
-      var screenshots = gameDetails.screenshots.map(screenshot => { return screenshot.path_thumbnail })
-
-      game.name = gameDetails.name;
-      game.complete_description = gameDetails.detailed_description;
-      game.short_description = gameDetails.short_description;
-      game.prices.original = gameDetails.price_overview ? gameDetails.price_overview.initial : 0;
-      game.prices.promo = gameDetails.price_overview ? gameDetails.price_overview.final : null;
-      game.prices.discount = gameDetails.price_overview ? gameDetails.price_overview.discount_percent : 0;
-      game.media.banner = gameDetails.header_image;
-      game.media.background = gameDetails.background;
-      game.media.videos = videos || [];
-      game.media.screenshot = screenshots;
-
-      await db.collection('games').update(
-        { steamID: game.steamID },
-        {
-          $set: {
-            name: game.name,
-            complete_description: game.complete_description,
-            short_description: game.short_description,
-            "prices.original": game.prices.original,
-            "prices.promo": game.prices.promo,
-            "prices.discount": game.prices.discount,
-            "media.banner": game.media.banner,
-            "media.background": game.media.background,
-            "media.videos": game.media.videos,
-            "media.screenshot": game.media.screenshot,
-          }
-        }
-      )
-    })
-
-    var mosqueteiros = await db
-      .collection("mosqueteiros")
-      .find({})
-      .sort({})
-      .toArray();
-
-    games = JSON.parse(JSON.stringify(games))
-    mosqueteiros = JSON.parse(JSON.stringify(mosqueteiros))
+    await fetch(process.env.URL + '/api/games/updateGameInfo')
+    var games = await fetch(process.env.URL + '/api/games/getAllGames').then(res => res.json());
+    var mosqueteiros = await fetch(process.env.URL + '/api/games/getGamesByMosqueteiro').then(res => res.json());
   } catch (e) {
     console.error(e)
   }
