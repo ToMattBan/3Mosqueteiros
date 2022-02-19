@@ -10,16 +10,15 @@ export default function MainDetails(props) {
     <tr>
       <td className="_tac"><Image src={banner} width="100px" height='50px' alt={`banner from ${name}`} /></td>
       <td>{name}</td>
-      {/* 
-        TO-DO:
-        Mostrar preço com desconto e o desconto
-        junto com o preço normal
-      */}
       {
-        discountPrice ?
+        discount != 0 ?
           (
-            <td>
-              {convertToReais(discountPrice)}
+            <td className="_df _aic">
+              <span className="_lh-solid _mrxxs _tac">
+                <small className="_tdl">{convertToReais(price)}</small>
+                <div>{convertToReais(discountPrice)}</div>
+              </span>
+              <span className="_bggreen _phxxs _white _fz20">{discount}%</span>
             </td>
           )
           :
