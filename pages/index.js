@@ -28,7 +28,7 @@ export default function Home({ games, mosqueteiros }) {
             </tr>
             <tr></tr>
           </thead>
-          <tbody>
+          <tbody className='acordeonFather'>
             {
               games.map(game => {
                 return (<Game game={game} mosqueteiros={mosqueteiros} key={Math.random().toString()} />)
@@ -43,7 +43,9 @@ export default function Home({ games, mosqueteiros }) {
 
 export async function getStaticProps() {
   try {
-    await fetch(process.env.URL + '/api/games/updateGameInfo')
+    var update = await fetch(process.env.URL + '/api/games/updateGameInfo');
+    console.log(update);
+
     var games = await fetch(process.env.URL + '/api/games/getAllGames').then(res => res.json());
     var mosqueteiros = await fetch(process.env.URL + '/api/games/getGamesByMosqueteiro').then(res => res.json());
   } catch (e) {

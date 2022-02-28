@@ -1,7 +1,3 @@
-/* ==============================================================================================
- * RESPONSIVE INCLUDES
- * ============================================================================================== */
-
 @if (variable-exists(mq-breakpoints) and $enableResponsiveLayout) {
   @each $breakpointName, $breakpointValue in $mq-breakpoints {
     $breakpoint: #{$breakpointSeparator}#{$breakpointName};
@@ -19,6 +15,7 @@
 
       @include alignUtility($breakpoint);
       //@include clearfixUtility($breakpoint);
+      @include cursorUtility($breakpoint);
       @include displayUtility($breakpoint);
       //@include overflowUtility($breakpoint);
       @include positionUtility($breakpoint);
