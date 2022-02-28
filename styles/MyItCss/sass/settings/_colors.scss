@@ -3,28 +3,22 @@
  * ========================================================================= */
 
 $_colorCache: (
-  "pink": #ff5563,
-  "green": #0d7437,
-  "hardBlue": #7281a0,
-  "blue": #6e7d9d,
+  "black": #000,
+  "white": #fff,
   "yellow": #ffe000,
 );
 
 $colors: (
-  "pink": map_get($_colorCache, "pink"),
-  "green": map_get($_colorCache, "green"),
-  "hardBlue": map_get($_colorCache, "hardBlue"),
-  "blue": map_get($_colorCache, "blue"),
   "yellow": map_get($_colorCache, "yellow"),
   "textGray": #555555,
   "mediumGray": #707070,
   "strokeGray": #d8d8d8,
   "lightGray": #f3f3f3,
-  "black": #333,
-  "white": #fff,
-  "primary": map_get($_colorCache, "pink"),
-  "secondary": map_get($_colorCache, "green"),
-  "tertiary": map_get($_colorCache, "hardBlue"),
+  "black": map_get($_colorCache, 'black'),
+  "white": map_get($_colorCache, 'white'),
+  "primary": map_get($_colorCache, 'black'),
+  "secondary": map_get($_colorCache, 'white'),
+  //"tertiary": map_get($_colorCache, "hardBlue"),
 );
 
 @function getColor($key) {

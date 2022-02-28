@@ -1369,55 +1369,63 @@ table {
 /* Style variants
  * ========================================================================== */
 .c-btn--primary {
-  background-color: #ff5563; }
+  background-color: #000; }
   .c-btn--primary, .c-btn--primary:hover, .c-btn--primary:active, .c-btn--primary:focus {
     text-decoration: none;
     /* [4] */
     color: #fff; }
   .c-btn--primary:hover, .c-btn--primary:focus {
-    background-color: #cc444f; }
+    background-color: black; }
 
 .c-btn--secondary {
-  background-color: #0d7437; }
+  background-color: #fff; }
   .c-btn--secondary, .c-btn--secondary:hover, .c-btn--secondary:active, .c-btn--secondary:focus {
     text-decoration: none;
-    color: #333; }
+    color: #000; }
   .c-btn--secondary:hover, .c-btn--secondary:focus {
-    background-color: #0d7437; }
+    background-color: #fff; }
 
-.c-btn--tertiary {
-  background-color: #333;
-  color: #ff5563; }
-  .c-btn--tertiary, .c-btn--tertiary:hover, .c-btn--tertiary:active, .c-btn--tertiary:focus {
+/* .c-btn--tertiary {
+  background-color: getColor("tertiary");
+  color: getColor("primary");
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
     text-decoration: none;
-    color: #ff5563; }
-  .c-btn--tertiary:hover, .c-btn--tertiary:focus {
-    color: #333; }
+    color: getColor("primary");
+  }
 
+  &:hover,
+  &:focus {
+    color: getColor("black");
+  }
+} */
 .c-btn--primary.c-btn--inverted {
   background-color: transparent;
-  border: solid 1px #ff5563; }
+  border: solid 1px #000; }
   .c-btn--primary.c-btn--inverted, .c-btn--primary.c-btn--inverted:hover, .c-btn--primary.c-btn--inverted:active, .c-btn--primary.c-btn--inverted:focus {
     text-decoration: none;
     /* [4] */
-    color: #ff5563;
+    color: #000;
     font-weight: normal; }
   .c-btn--primary.c-btn--inverted:hover, .c-btn--primary.c-btn--inverted:focus {
-    background-color: #ff5563;
+    background-color: #000;
     color: #fff;
     font-weight: normal; }
 
 .c-btn--secondary.c-btn--inverted {
   background-color: transparent;
-  border: solid 1px #0d7437; }
+  border: solid 1px #fff; }
   .c-btn--secondary.c-btn--inverted, .c-btn--secondary.c-btn--inverted:hover, .c-btn--secondary.c-btn--inverted:active, .c-btn--secondary.c-btn--inverted:focus {
     text-decoration: none;
     /* [4] */
-    color: #0d7437;
+    color: #fff;
     font-weight: normal; }
   .c-btn--secondary.c-btn--inverted:hover, .c-btn--secondary.c-btn--inverted:focus {
-    background-color: #0d7437;
-    color: #333;
+    background-color: #fff;
+    color: #000;
     font-weight: normal; }
 
 /* Size variants
@@ -1434,7 +1442,15 @@ table {
  * ========================================================================== */
 .c-btn--ghost {
   border: 2px solid currentColor;
-  padding: 22px 30px; }
+  padding: 22px 30px;
+  /* &.c-btn--tertiary {
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+  } */ }
   .c-btn--ghost, .c-btn--ghost:hover, .c-btn--ghost:active, .c-btn--ghost:focus {
     background: none; }
   .c-btn--ghost.c-btn--small {
@@ -1449,10 +1465,6 @@ table {
     color: #2f4054; }
     .c-btn--ghost.c-btn--secondary:hover, .c-btn--ghost.c-btn--secondary:focus {
       color: #1d2733; }
-  .c-btn--ghost.c-btn--tertiary {
-    color: #fff; }
-    .c-btn--ghost.c-btn--tertiary:hover, .c-btn--ghost.c-btn--tertiary:focus {
-      color: #fff; }
 
 html,
 body {
@@ -1515,17 +1527,42 @@ input[type="number"] {
   display: block !important;
   clear: both !important; }
 
-/* ==========================================================================
- * DISPLAY UTILITY
- *
- * Display utility classes
- *
- * https://github.com/tachyons-css/tachyons/blob/master/src/_display.css
- * ========================================================================== */
-/**
-   * Hide only visually, but have it available for screen readers:
-   * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-   */
+._ca {
+  cursor: auto; }
+
+._cc {
+  cursor: copy; }
+
+._cd {
+  cursor: default; }
+
+._cg {
+  cursor: grab; }
+
+._cgb {
+  cursor: grabbing; }
+
+._ch {
+  cursor: help; }
+
+._cn {
+  cursor: none; }
+
+._cna {
+  cursor: not-allowed; }
+
+._cp {
+  cursor: pointer; }
+
+._cpg {
+  cursor: progress; }
+
+._czi {
+  cursor: zoom-in; }
+
+._czo {
+  cursor: zoom-out; }
+
 ._hidden {
   border: 0 !important;
   clip: rect(0 0 0 0) !important;
@@ -2972,22 +3009,10 @@ input[type="number"] {
  * TEXT COLOR UTILITIES
  * ============================================================================================== */
 ._base {
-  color: #333 !important; }
+  color: #000 !important; }
 
 ._white {
   color: #fff !important; }
-
-._pink {
-  color: #ff5563 !important; }
-
-._green {
-  color: #0d7437 !important; }
-
-._hardBlue {
-  color: #7281a0 !important; }
-
-._blue {
-  color: #6e7d9d !important; }
 
 ._yellow {
   color: #ffe000 !important; }
@@ -3005,19 +3030,16 @@ input[type="number"] {
   color: #f3f3f3 !important; }
 
 ._black {
-  color: #333 !important; }
+  color: #000 !important; }
 
 ._white {
   color: #fff !important; }
 
 ._primary {
-  color: #ff5563 !important; }
+  color: #000 !important; }
 
 ._secondary {
-  color: #0d7437 !important; }
-
-._tertiary {
-  color: #7281a0 !important; }
+  color: #fff !important; }
 
 /* Links
    ============================================================================================== */
@@ -3037,18 +3059,6 @@ input[type="number"] {
 ._bgwhite {
   background-color: #fff !important; }
 
-._bgpink {
-  background-color: #ff5563 !important; }
-
-._bggreen {
-  background-color: #0d7437 !important; }
-
-._bghardBlue {
-  background-color: #7281a0 !important; }
-
-._bgblue {
-  background-color: #6e7d9d !important; }
-
 ._bgyellow {
   background-color: #ffe000 !important; }
 
@@ -3065,19 +3075,16 @@ input[type="number"] {
   background-color: #f3f3f3 !important; }
 
 ._bgblack {
-  background-color: #333 !important; }
+  background-color: #000 !important; }
 
 ._bgwhite {
   background-color: #fff !important; }
 
 ._bgprimary {
-  background-color: #ff5563 !important; }
+  background-color: #000 !important; }
 
 ._bgsecondary {
-  background-color: #0d7437 !important; }
-
-._bgtertiary {
-  background-color: #7281a0 !important; }
+  background-color: #fff !important; }
 
 /* =========================================================================
  * BORDER RADIUS UTILITIES
@@ -3100,22 +3107,6 @@ input[type="number"] {
 /* =========================================================================
  * BORDER COLOR UTILITIES
  * ========================================================================= */
-._bdpink {
-  border-color: #ff5563 !important;
-  border: solid 1px; }
-
-._bdgreen {
-  border-color: #0d7437 !important;
-  border: solid 1px; }
-
-._bdhardBlue {
-  border-color: #7281a0 !important;
-  border: solid 1px; }
-
-._bdblue {
-  border-color: #6e7d9d !important;
-  border: solid 1px; }
-
 ._bdyellow {
   border-color: #ffe000 !important;
   border: solid 1px; }
@@ -3137,7 +3128,7 @@ input[type="number"] {
   border: solid 1px; }
 
 ._bdblack {
-  border-color: #333 !important;
+  border-color: #000 !important;
   border: solid 1px; }
 
 ._bdwhite {
@@ -3145,15 +3136,11 @@ input[type="number"] {
   border: solid 1px; }
 
 ._bdprimary {
-  border-color: #ff5563 !important;
+  border-color: #000 !important;
   border: solid 1px; }
 
 ._bdsecondary {
-  border-color: #0d7437 !important;
-  border: solid 1px; }
-
-._bdtertiary {
-  border-color: #7281a0 !important;
+  border-color: #fff !important;
   border: solid 1px; }
 
 ._bd2 {
@@ -3161,9 +3148,6 @@ input[type="number"] {
 
 /* Responsive Classes
  * --------------------------- */
-/* ==============================================================================================
- * RESPONSIVE INCLUDES
- * ============================================================================================== */
 @media (min-width: 37.5em) {
   .o-wrapper {
     padding-right: 32px;
@@ -3333,10 +3317,30 @@ input[type="number"] {
   ._center\@tabletV {
     margin-right: auto !important;
     margin-left: auto !important; }
-  /**
-   * Hide only visually, but have it available for screen readers:
-   * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-   */
+  ._ca\@tabletV {
+    cursor: auto; }
+  ._cc\@tabletV {
+    cursor: copy; }
+  ._cd\@tabletV {
+    cursor: default; }
+  ._cg\@tabletV {
+    cursor: grab; }
+  ._cgb\@tabletV {
+    cursor: grabbing; }
+  ._ch\@tabletV {
+    cursor: help; }
+  ._cn\@tabletV {
+    cursor: none; }
+  ._cna\@tabletV {
+    cursor: not-allowed; }
+  ._cp\@tabletV {
+    cursor: pointer; }
+  ._cpg\@tabletV {
+    cursor: progress; }
+  ._czi\@tabletV {
+    cursor: zoom-in; }
+  ._czo\@tabletV {
+    cursor: zoom-out; }
   ._hidden\@tabletV {
     border: 0 !important;
     clip: rect(0 0 0 0) !important;
@@ -4269,10 +4273,30 @@ input[type="number"] {
   ._center\@tabletH {
     margin-right: auto !important;
     margin-left: auto !important; }
-  /**
-   * Hide only visually, but have it available for screen readers:
-   * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-   */
+  ._ca\@tabletH {
+    cursor: auto; }
+  ._cc\@tabletH {
+    cursor: copy; }
+  ._cd\@tabletH {
+    cursor: default; }
+  ._cg\@tabletH {
+    cursor: grab; }
+  ._cgb\@tabletH {
+    cursor: grabbing; }
+  ._ch\@tabletH {
+    cursor: help; }
+  ._cn\@tabletH {
+    cursor: none; }
+  ._cna\@tabletH {
+    cursor: not-allowed; }
+  ._cp\@tabletH {
+    cursor: pointer; }
+  ._cpg\@tabletH {
+    cursor: progress; }
+  ._czi\@tabletH {
+    cursor: zoom-in; }
+  ._czo\@tabletH {
+    cursor: zoom-out; }
   ._hidden\@tabletH {
     border: 0 !important;
     clip: rect(0 0 0 0) !important;
@@ -5205,10 +5229,30 @@ input[type="number"] {
   ._center\@laptop {
     margin-right: auto !important;
     margin-left: auto !important; }
-  /**
-   * Hide only visually, but have it available for screen readers:
-   * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-   */
+  ._ca\@laptop {
+    cursor: auto; }
+  ._cc\@laptop {
+    cursor: copy; }
+  ._cd\@laptop {
+    cursor: default; }
+  ._cg\@laptop {
+    cursor: grab; }
+  ._cgb\@laptop {
+    cursor: grabbing; }
+  ._ch\@laptop {
+    cursor: help; }
+  ._cn\@laptop {
+    cursor: none; }
+  ._cna\@laptop {
+    cursor: not-allowed; }
+  ._cp\@laptop {
+    cursor: pointer; }
+  ._cpg\@laptop {
+    cursor: progress; }
+  ._czi\@laptop {
+    cursor: zoom-in; }
+  ._czo\@laptop {
+    cursor: zoom-out; }
   ._hidden\@laptop {
     border: 0 !important;
     clip: rect(0 0 0 0) !important;
@@ -6135,10 +6179,30 @@ input[type="number"] {
   ._center\@desktop {
     margin-right: auto !important;
     margin-left: auto !important; }
-  /**
-   * Hide only visually, but have it available for screen readers:
-   * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-   */
+  ._ca\@desktop {
+    cursor: auto; }
+  ._cc\@desktop {
+    cursor: copy; }
+  ._cd\@desktop {
+    cursor: default; }
+  ._cg\@desktop {
+    cursor: grab; }
+  ._cgb\@desktop {
+    cursor: grabbing; }
+  ._ch\@desktop {
+    cursor: help; }
+  ._cn\@desktop {
+    cursor: none; }
+  ._cna\@desktop {
+    cursor: not-allowed; }
+  ._cp\@desktop {
+    cursor: pointer; }
+  ._cpg\@desktop {
+    cursor: progress; }
+  ._czi\@desktop {
+    cursor: zoom-in; }
+  ._czo\@desktop {
+    cursor: zoom-out; }
   ._hidden\@desktop {
     border: 0 !important;
     clip: rect(0 0 0 0) !important;

@@ -77,8 +77,8 @@
   }
 }
 
-.c-btn--tertiary {
-  background-color: getColor("black");
+/* .c-btn--tertiary {
+  background-color: getColor("tertiary");
   color: getColor("primary");
 
   &,
@@ -93,7 +93,7 @@
   &:focus {
     color: getColor("black");
   }
-}
+} */
 
 .c-btn--primary.c-btn--inverted {
   background-color: transparent;
@@ -197,12 +197,12 @@ $btnGhostBorderWidth: 2px;
     }
   }
 
-  &.c-btn--tertiary {
+  /* &.c-btn--tertiary {
     color: #fff;
 
     &:hover,
     &:focus {
       color: #fff;
     }
-  }
+  } */
 }
