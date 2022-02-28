@@ -4,14 +4,14 @@ export default function MostDetails(props) {
   const { completeDesc, shortDesc, numberPlayers, background, videos, screenshot } = props;
 
   return (
-    <tr className='_dn'>
-      <td>Descrição curta - {shortDesc}</td>
-      <td>Descrição completa - {completeDesc}</td>
-      <td>Até quantos players - {numberPlayers}</td>
+    <>
+      <div>{shortDesc}</div>
+      {/* <div>Descrição completa - {completeDesc}</div>
+      <div>Até quantos players - {numberPlayers}</div>
 
-      <td>Background - {background}</td>
-      <td>Videos - {videos}</td>
-      <td>Screenshots - {screenshot}</td>
-    </tr>
+      <div>Background - {background}</div>
+      <div>Videos - {videos}</div>
+      <div>Screenshots - {screenshot}</div> */}
+    </>
   )
 }

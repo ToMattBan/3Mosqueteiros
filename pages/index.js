@@ -10,7 +10,7 @@ export default function Home({ games, mosqueteiros }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className='o-wrapper'>
         <table className='_tal'>
           <thead>
             <tr>
@@ -44,7 +44,6 @@ export default function Home({ games, mosqueteiros }) {
 export async function getStaticProps() {
   try {
     var update = await fetch(process.env.URL + '/api/games/updateGameInfo');
-    console.log(update);
 
     var games = await fetch(process.env.URL + '/api/games/getAllGames').then(res => res.json());
     var mosqueteiros = await fetch(process.env.URL + '/api/games/getGamesByMosqueteiro').then(res => res.json());

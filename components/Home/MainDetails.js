@@ -2,32 +2,28 @@ import React from "react";
 import Image from 'next/image'
 
 import dropdownIcon from '../../public/dropdownIcon.svg'
+import Discount from "./Discount";
+
+import styles from "../../styles/Components/Game.module.scss"
 
 export default function MainDetails(props) {
-  const { banner, name, price, discountPrice, discount, mosqueteiros, steamID } = props;
+  const { banner, name, price, discountPrice, discount, mosqueteiros, steamID, f_ToggleAcordeon } = props;
 
   return (
-    <tr>
-      <td className="_tac"><Image src={banner} width="100px" height='50px' alt={`banner from ${name}`} /></td>
-      <td>{name}</td>
-      {
-        discount != 0 ?
-          (
-            <td className="_df _aic">
-              <span className="_lh-solid _mrxxs _tac">
-                <small className="_tdl">{convertToReais(price)}</small>
-                <div>{convertToReais(discountPrice)}</div>
-              </span>
-              <span className="_bggreen _phxxs _white _fz20">{discount}%</span>
-            </td>
-          )
-          :
-          (
-            <td>
-              {convertToReais(price)}
-            </td>
-          )
-      }
+    <>
+      <td>
+        <a className="_db _1/1 _textGray _tdn" href={'https://store.steampowered.com/app/' + steamID}>
+          <Image src={banner} width="100px" height='50px' alt={`banner from ${name}`} />
+        </a>
+      </td>
+
+      <td>
+        <a className="_db _1/1 _textGray _tdn" href={'https://store.steampowered.com/app/' + steamID}>
+          <span>{name} {steamID}</span>
+        </a>
+      </td>
+
+      <Discount discount={discount} price={price} discountPrice={discountPrice}/>
       {
         mosqueteiros.map(mosqueteiro => {
           return (
@@ -37,14 +33,17 @@ export default function MainDetails(props) {
           )
         })
       }
-      <td><Image src={dropdownIcon} alt="dropdown Icon" /></td>
-    </tr>
+      <td className="_cp" onClick={toggleAcordeon}><Image className={styles.dropdownIcon} src={dropdownIcon} alt="dropdown Icon" /></td>
+    </>
   )
-}
 
-function convertToReais(price) {
-  if (!price) return "--"
+  function toggleAcordeon(e) {
+    var _target = e.target;
 
-  price = price / 100
-  return price.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })
+    while (!_target.className.includes('acordeonHeader')) {
+      _target = _target.parentElement;
+    }
+
+    f_ToggleAcordeon(_target)
+  }
 }
