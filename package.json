@@ -2,7 +2,8 @@
   "name": "3mosqueteiros",
   "private": true,
   "scripts": {
-    "dev": "node-sass --watch styles/MyItCss/sass -o styles & next dev",
+    "dev": "next dev",
+    "watch_sass": "node-sass --watch styles/MyItCss/sass -o styles",
     "build_sass": "node-sass ./styles/MyItCss/sass/main.scss ./styles/main.css",
     "build": "npm run build_sass && next build",
     "start": "next start",
