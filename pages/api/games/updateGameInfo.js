@@ -33,12 +33,12 @@ function getGameData(steamID) {
 }
 
 async function updateGameData(gameData, steamID) {
-  var gameDetails = (JSON.parse(gameData))[steamID].data
+  const gameDetails = (JSON.parse(gameData))[steamID].data
 
   if (gameDetails.movies)
-    var videos = gameDetails.movies.map(video => { return video.webm["480"] })
+    const videos = gameDetails.movies.map(video => { return video.webm["480"] })
 
-  var screenshots = gameDetails.screenshots.map(screenshot => { return screenshot.path_thumbnail })
+  const screenshots = gameDetails.screenshots.map(screenshot => { return screenshot.path_thumbnail })
 
   const client = await clientPromise;
   const db = client.db('games');
@@ -50,9 +50,9 @@ async function updateGameData(gameData, steamID) {
         name: gameDetails.name,
         complete_description: gameDetails.detailed_description,
         short_description: gameDetails.short_description,
-        "prices.original": gameDetails.price_overview ? gameDetails.price_overview.initial : 0,
-        "prices.promo": gameDetails.price_overview ? gameDetails.price_overview.final : null,
-        "prices.discount": gameDetails.price_overview ? gameDetails.price_overview.discount_percent : 0,
+        "prices.original": gameDetails.price_overview?.initial ?? 0,
+        "prices.promo": gameDetails.price_overview?.final ?? null,
+        "prices.discount": gameDetails.price_overview?.discount_percent ?? 0,
         "media.banner": gameDetails.header_image,
         "media.background": gameDetails.background,
         "media.videos": videos || [],

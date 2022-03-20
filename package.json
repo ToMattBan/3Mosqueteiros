@@ -2,12 +2,8 @@
   "name": "3mosqueteiros",
   "private": true,
   "scripts": {
-    "watch_sass": "node-sass --watch styles/MyItCss/sass -o styles",
-    "build_sass": "node-sass ./styles/MyItCss/sass/main.scss ./styles/main.css && npm run minify_css",
-    "minify_css": "minify ./styles/main.css > ./styles/main.min.css",
-    
     "dev": "next dev",
-    "build": "npm run build_sass && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },

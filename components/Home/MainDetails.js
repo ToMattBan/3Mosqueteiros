@@ -19,7 +19,7 @@ export default function MainDetails(props) {
 
       <td>
         <a className="_db _1/1 _textGray _tdn" href={'https://store.steampowered.com/app/' + steamID}>
-          <span>{name}</span>
+          <span>{name} {steamID}</span>
         </a>
       </td>
 
